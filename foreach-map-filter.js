@@ -218,7 +218,9 @@ Examples:
 
 function findInObj(arr, key, searchValue) {
 
-    
+    return arr.filter(function(val) {
+        return val[key] === searchValue;
+    })[0];
 
 }
 
@@ -231,7 +233,17 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+
+    let strArr =  (str.toLowerCase().split(""));
+    return strArr.filter(function(val) {
+        if (val === "a" || val === "e" || val === "i" || val === "o" || val === "u") {
+            return false;
+        }
+        return true;
+    }).join("");
+
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -241,4 +253,14 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+
+    let filtered = arr.filter(function(val) {
+        return val%2;
+    });
+
+    return filtered.map(function(val) {
+        return val*2;
+    })
+
+}
